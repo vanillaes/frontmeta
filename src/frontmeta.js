@@ -80,7 +80,7 @@ export default function FrontMeta (contents = '') {
             break;
           case /^(\r\n|\n|\r)$/.test(match):
             state = 1;
-            meta[key] = value;
+            meta[key] = value.trimRight();
             key = '';
             value = '';
             break;

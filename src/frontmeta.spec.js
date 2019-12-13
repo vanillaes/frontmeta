@@ -11,6 +11,7 @@ const whitespace2 = require('./__test__/whitespace2.json');
 const whitespace3 = require('./__test__/whitespace3.json');
 const whitespace4 = require('./__test__/whitespace4.json');
 const whitespace5 = require('./__test__/whitespace5.json');
+const whitespace6 = require('./__test__/whitespace6.json');
 
 test('Basic Usage', (t) => {
   const input = basic.input.join('\n');
@@ -89,6 +90,16 @@ test('Whitespace4 - whitespace after key but before : is ignored', (t) => {
 test('Whitespace5 - whitespace after : but before value is ignored', (t) => {
   const input = whitespace5.input.join('\n');
   const expect = whitespace5.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Whitespace6 - whitespace after value but before newline is ignored', (t) => {
+  const input = whitespace6.input.join('\n');
+  const expect = whitespace6.expect;
   const result = frontmeta(input);
 
   t.deepEqual(result, expect);
