@@ -13,6 +13,7 @@ export default function FrontMeta (contents = '') {
   let match = '';
   let state = 0;
   let dashes = 0;
+  let noMeta = false;
   let isMeta = false;
   let isBody = false;
   let key = '';
@@ -30,7 +31,11 @@ export default function FrontMeta (contents = '') {
             dashes++;
             state = 1;
             break;
+          case /^(\s)$/.test(match):
+            state = 0;
+            break;
           default:
+            noMeta = true;
             break;
         }
         break;
@@ -90,6 +95,11 @@ export default function FrontMeta (contents = '') {
             break;
         }
         break;
+    }
+
+    if (noMeta) {
+      body = contents;
+      break;
     }
 
     if (isBody) {

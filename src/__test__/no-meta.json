@@ -1,0 +1,9 @@
+{
+  "input": [
+    "body"
+  ],
+  "expect": {
+    "meta": {},
+    "body": "body"
+  }
+}

@@ -4,6 +4,7 @@ import frontmeta from '../index.js';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
+const noMeta = require('./__test__/no-meta.json');
 const boundary1 = require('./__test__/boundary1.json');
 const boundary2 = require('./__test__/boundary2.json');
 const whitespace1 = require('./__test__/whitespace1.json');
@@ -25,7 +26,17 @@ test('Basic Usage', (t) => {
   t.end();
 });
 
-test('boundary1 - the opening boundary should have 3 or more dashes', (t) => {
+test('No Metadata - if there is no metadata set body to the contents', (t) => {
+  const input = noMeta.input.join('\n');
+  const expect = noMeta.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Boundary1 - the opening boundary should have 3 or more dashes', (t) => {
   const input = boundary1.input.join('\n');
 
   try {
@@ -37,7 +48,7 @@ test('boundary1 - the opening boundary should have 3 or more dashes', (t) => {
   t.end();
 });
 
-test('boundary2 - the closing boundary should have 3 or more dashes', (t) => {
+test('Boundary2 - the closing boundary should have 3 or more dashes', (t) => {
   const input = boundary2.input.join('\n');
 
   try {
