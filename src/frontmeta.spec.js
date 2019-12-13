@@ -5,6 +5,7 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
 const boundary1 = require('./__test__/boundary1.json');
+const boundary2 = require('./__test__/boundary2.json');
 const whitespace1 = require('./__test__/whitespace1.json');
 const whitespace2 = require('./__test__/whitespace2.json');
 
@@ -20,6 +21,18 @@ test('Basic Usage', (t) => {
 
 test('boundary1 - the opening boundary should have 3 or more dashes', (t) => {
   const input = boundary1.input.join('\n');
+  
+  try {
+    frontmeta(input);
+  } catch (e) {
+    t.pass('Expected exception thrown');
+  }
+  
+  t.end();
+});
+
+test('boundary2 - the closing boundary should have 3 or more dashes', (t) => {
+  const input = boundary2.input.join('\n');
   
   try {
     frontmeta(input);
