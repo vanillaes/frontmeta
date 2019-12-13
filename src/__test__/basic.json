@@ -1,0 +1,17 @@
+{
+  "description": [
+    "Each record is located on a separate line, delimited by a line break (CRLF)."
+  ],
+  "input": [
+    "---",
+    "key:value",
+    "---",
+    "body"
+  ],
+  "expect": {
+    "meta": {
+      "key": "value"
+    },
+    "body": "body"
+  }
+}
