@@ -18,7 +18,7 @@ export default function FrontMeta (contents = '') {
   let key = '';
   let value = '';
 
-  const lexer = RegExp(/-|:|\r\n|\n|\r|\s|[^:\r\n]+/y);
+  const lexer = RegExp(/-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y);
 
   while ((matches = lexer.exec(contents)) !== null) {
     match = matches[0];
@@ -62,9 +62,11 @@ export default function FrontMeta (contents = '') {
           case match === ':':
             state = 3;
             break;
-          case /^(\r\n|\n|\r|\s)$/.test(match):
+          case /^(\s)$/.test(match):
             state = 2;
             break;
+          case /^(\r\n|\n|\r)$/.test(match):
+            throw Error("ERR: Broken key:value pair");
           default:
             key += match;
             state = 2;

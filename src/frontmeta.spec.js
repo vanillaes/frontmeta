@@ -9,7 +9,7 @@ const boundary2 = require('./__test__/boundary2.json');
 const whitespace1 = require('./__test__/whitespace1.json');
 const whitespace2 = require('./__test__/whitespace2.json');
 const whitespace3 = require('./__test__/whitespace3.json');
-
+const whitespace4 = require('./__test__/whitespace4.json');
 
 test('Basic Usage', (t) => {
   const input = basic.input.join('\n');
@@ -68,6 +68,16 @@ test('Whitespace2 - white space after opening dashes but before newline is ignor
 test('Whitespace3 - whitespace before key is ignored', (t) => {
   const input = whitespace3.input.join('\n');
   const expect = whitespace3.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Whitespace4 - whitespace after key but before : is ignored', (t) => {
+  const input = whitespace4.input.join('\n');
+  const expect = whitespace4.expect;
   const result = frontmeta(input);
 
   t.deepEqual(result, expect);
