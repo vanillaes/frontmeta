@@ -12,6 +12,7 @@ const whitespace3 = require('./__test__/whitespace3.json');
 const whitespace4 = require('./__test__/whitespace4.json');
 const whitespace5 = require('./__test__/whitespace5.json');
 const whitespace6 = require('./__test__/whitespace6.json');
+const whitespace7 = require('./__test__/whitespace7.json');
 
 test('Basic Usage', (t) => {
   const input = basic.input.join('\n');
@@ -100,6 +101,16 @@ test('Whitespace5 - whitespace after : but before value is ignored', (t) => {
 test('Whitespace6 - whitespace after value but before newline is ignored', (t) => {
   const input = whitespace6.input.join('\n');
   const expect = whitespace6.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Whitespace7 - whitespace before closing dashes is ignored', (t) => {
+  const input = whitespace7.input.join('\n');
+  const expect = whitespace7.expect;
   const result = frontmeta(input);
 
   t.deepEqual(result, expect);

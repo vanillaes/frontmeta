@@ -1,8 +1,8 @@
 {
   "input": [
     "---",
-    "key:value  ",
-    "---",
+    "key:value",
+    "   ---",
     "body"
   ],
   "expect": {
