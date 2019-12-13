@@ -4,6 +4,7 @@ import frontmeta from '../index.js';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
+const boundary1 = require('./__test__/boundary1.json');
 const whitespace1 = require('./__test__/whitespace1.json');
 const whitespace2 = require('./__test__/whitespace2.json');
 
@@ -14,6 +15,18 @@ test('Basic Usage', (t) => {
 
   t.deepEqual(result, expect);
 
+  t.end();
+});
+
+test('boundary1 - the opening boundary should have 3 or more dashes', (t) => {
+  const input = boundary1.input.join('\n');
+  
+  try {
+    frontmeta(input);
+  } catch (e) {
+    t.pass('Expected exception thrown');
+  }
+  
   t.end();
 });
 

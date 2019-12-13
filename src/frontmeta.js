@@ -12,6 +12,7 @@ export default function FrontMeta (contents = '') {
   let matches = [];
   let match = '';
   let state = 0;
+  let dashes = 0;
   let isMeta = false;
   let isBody = false;
   let key = '';
@@ -26,6 +27,7 @@ export default function FrontMeta (contents = '') {
       case 0: // start of the file
         switch (true) {
           case match === '-':
+            dashes++;
             state = 1;
             break;
           default:
@@ -35,9 +37,13 @@ export default function FrontMeta (contents = '') {
       case 1: // dash marker
         switch (true) {
           case match === '-':
+            dashes++;
             state = 1;
             break;
           case /^(\r\n|\n|\r)$/.test(match):
+            if (dashes < 3) {
+              throw Error("ERR: Meta boundary must have at least 3 dashes")
+            }
             if (!isMeta) {
               isMeta = true;
               state = 2;
@@ -45,6 +51,7 @@ export default function FrontMeta (contents = '') {
               isBody = true;
               state = 5;
             }
+            dashes = 0;
             break;
           default:
             break;
