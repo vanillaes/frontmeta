@@ -20,12 +20,14 @@
   "scripts": {
     "test": "tape-es",
     "test:watch": "tape-watch-es",
+    "lint": "semistandard",
     "package": "npx rimraf package && npm pack | tail -n 1 | xargs tar -xf",
     "preversion": "npm test && npm run lint && npm run types",
     "postversion": "git push --follow-tags"
   },
   "dependencies": {},
   "devDependencies": {
+    "semistandard": "^14.2.0",
     "tape-es": "^1.1.4"
   }
 }
