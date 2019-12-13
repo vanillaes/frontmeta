@@ -1,0 +1,13 @@
+{
+  "input": [
+    "---",
+    "key:value",
+    "---"
+  ],
+  "expect": {
+    "meta": {
+      "key": "value"
+    },
+    "body": ""
+  }
+}
