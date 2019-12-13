@@ -75,6 +75,9 @@ export default function FrontMeta (contents = '') {
         break;
       case 3: // meta-value
         switch (true) {
+          case (value === '' && /^(\s)$/.test(match)):
+            state = 3;
+            break;
           case /^(\r\n|\n|\r)$/.test(match):
             state = 1;
             meta[key] = value;
