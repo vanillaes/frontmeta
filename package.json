@@ -1,0 +1,29 @@
+{
+  "name": "frontmeta",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Evan Plaice <evanplaice@gmail.com> (http://evanplaice.com/)",
+  "description": "Front-matter parser for key:value pairs",
+  "keywords": [
+    "frontmatter",
+    "metadata",
+    "parser",
+    "key",
+    "value"
+  ],
+  "repository": "http://github.com/vanillaes/frontmeta/",
+  "main": "src/frontmeta.js",
+  "type": "module",
+  "engines": {
+    "node": ">=13.2"
+  },
+  "scripts": {
+    "test": "tape-es",
+    "test:watch": "tape-watch-es",
+    "package": "npx rimraf package && npm pack | tail -n 1 | xargs tar -xf",
+    "preversion": "npm test && npm run lint && npm run types",
+    "postversion": "git push --follow-tags"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
