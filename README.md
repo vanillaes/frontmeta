@@ -61,6 +61,10 @@ A CommonJS bundle is included for backward compatible with `node <= 13.2`
 const frontmeta = require('frontmeta/dist/frontmeta.cjs');
 ```
 
+## Bundling
+
+A ES module bundle is included under `dist/frontmeta.esm.js` and is defined as the `pkg.modules` entry point.
+
 ## Typings
 
 Typings are generated from JSDoc using Typescript. They are 100% compatible with VSCode Intellisense and will work seamlessly with Typescript.
