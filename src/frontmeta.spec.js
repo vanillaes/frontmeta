@@ -5,6 +5,7 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
 const whitespace1 = require('./__test__/whitespace1.json');
+const whitespace2 = require('./__test__/whitespace2.json');
 
 test('Basic Usage', (t) => {
   const input = basic.input.join('\n');
@@ -19,6 +20,16 @@ test('Basic Usage', (t) => {
 test('Whitespace1 - white space before opening dashes is ignored', (t) => {
   const input = whitespace1.input.join('\n');
   const expect = whitespace1.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('Whitespace2 - white space after opening dashes but before newline is ignored', (t) => {
+  const input = whitespace2.input.join('\n');
+  const expect = whitespace2.expect;
   const result = frontmeta(input);
 
   t.deepEqual(result, expect);
