@@ -6,6 +6,7 @@ const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
 const noMeta = require('./__test__/no-meta.json');
 const noBody1 = require('./__test__/no-body1.json');
+const noBody2 = require('./__test__/no-body1.json');
 const boundary1 = require('./__test__/boundary1.json');
 const boundary2 = require('./__test__/boundary2.json');
 const whitespace1 = require('./__test__/whitespace1.json');
@@ -40,6 +41,16 @@ test('NoMetadata - if there is no metadata set body to the contents', (t) => {
 test('NoBody1 - if there is no body return just the metadata', (t) => {
   const input = noBody1.input.join('\n');
   const expect = noBody1.expect;
+  const result = frontmeta(input);
+
+  t.deepEqual(result, expect);
+
+  t.end();
+});
+
+test('NoBody2 - if there is no body except a trailing newline return just the metadata', (t) => {
+  const input = noBody2.input.join('\n');
+  const expect = noBody2.expect;
   const result = frontmeta(input);
 
   t.deepEqual(result, expect);
