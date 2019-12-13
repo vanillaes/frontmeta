@@ -42,7 +42,7 @@ export default function FrontMeta (contents = '') {
             break;
           case /^(\r\n|\n|\r)$/.test(match):
             if (dashes < 3) {
-              throw Error("ERR: Meta boundary must have at least 3 dashes")
+              throw Error('ERR: Meta boundary must have at least 3 dashes');
             }
             if (!isMeta) {
               isMeta = true;
@@ -66,7 +66,7 @@ export default function FrontMeta (contents = '') {
             state = 2;
             break;
           case /^(\r\n|\n|\r)$/.test(match):
-            throw Error("ERR: Broken key:value pair");
+            throw Error('ERR: Broken key:value pair');
           default:
             key += match;
             state = 2;

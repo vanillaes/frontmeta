@@ -23,25 +23,25 @@ test('Basic Usage', (t) => {
 
 test('boundary1 - the opening boundary should have 3 or more dashes', (t) => {
   const input = boundary1.input.join('\n');
-  
+
   try {
     frontmeta(input);
   } catch (e) {
     t.pass('Expected exception thrown');
   }
-  
+
   t.end();
 });
 
 test('boundary2 - the closing boundary should have 3 or more dashes', (t) => {
   const input = boundary2.input.join('\n');
-  
+
   try {
     frontmeta(input);
   } catch (e) {
     t.pass('Expected exception thrown');
   }
-  
+
   t.end();
 });
 
