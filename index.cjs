@@ -7,7 +7,7 @@
  * @param {string} contents the the document contents
  * @returns an object containing 'meta' and 'body' fields
  */
-function FrontMeta (contents = '') {
+function frontmeta (contents = '') {
   const meta = {};
   let body = '';
 
@@ -111,4 +111,4 @@ function FrontMeta (contents = '') {
   return { meta, body };
 }
 
-module.exports = FrontMeta;
+module.exports = frontmeta;

@@ -1,7 +1,7 @@
 export default {
   input: 'index.js',
   output: {
-    file: 'dist/frontmeta.cjs',
+    file: 'index.cjs',
     format: 'cjs'
   }
 };
