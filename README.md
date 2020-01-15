@@ -22,7 +22,7 @@ npm install frontmeta
 import frontmeta from 'frontmeta';
 ```
 
-## frontmeta()
+## Usage
 
 Takes a document string and extracts the frontmeta metadata
 
@@ -31,6 +31,8 @@ Takes a document string and extracts the frontmeta metadata
 ```frontmeta(contents)```
 
 - contents - a string representing the document contents
+
+### Parsing
 
 ```
 ---
@@ -41,9 +43,9 @@ This is the document body.
 ```
 
 ```javascript
+import frontmeta from '/path/to/frontmeta/index.js';
 const document = // the document string
-
-const parsed = frontmatter(document)
+const parsed = frontmeta(document)
 console.log(parsed);
 //> {
 //>   "meta": {
@@ -53,12 +55,15 @@ console.log(parsed);
 //>   "body": "This is the document body."
 //> }
 ```
+
 ## CommonJS
 
 A CommonJS bundle is included for backward compatible with `node <= 13.2`
 
 ```javascript
-const frontmeta = require('frontmeta/dist/frontmeta.cjs');
+const frontmeta = require('frontmeta/index.cjs');
+const document = // the document string
+const data = frontMeta(document);
 ```
 
 ## Typings
