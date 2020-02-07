@@ -113,7 +113,30 @@ function parse (contents = '') {
   return { meta, body };
 }
 
-var index = { parse };
+/**
+ * Stringify takes a FrontMeta document object and returns FrontMatter
+ *
+ * @param {Object} document a FrontMeta document object
+ * @returns {string} the FrontMeta string
+ */
+function stringify (document) {
+  if (!document.meta || Object.keys(document.meta).length === 0) { return document.body; }
+  
+  let output = '---\n';
+  const metaKeys = Object.keys(document.meta);
+  metaKeys.forEach((key) => {
+    output += `${key}: ${document.meta[key]}\n`;
+  });
+  output += '---\n';
+  if (document.body) {
+    output += document.body;
+  }
+
+  return output;
+}
+
+var index = { parse, stringify };
 
 exports.default = index;
 exports.parse = parse;
+exports.stringify = stringify;
