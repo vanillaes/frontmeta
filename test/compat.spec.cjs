@@ -3,11 +3,11 @@ const FrontMeta = require('frontmeta');
 const basic = require('./__test__/basic.json');
 
 test('BasicUsage', (t) => {
-  const input = basic.input.join('\n');
-  const expect = basic.expect;
-  const result = FrontMeta.parse(input);
+  const input = basic.frontmeta.join('\n');
+  const expect = basic.json;
+  const actual = FrontMeta.parse(input);
 
-  t.deepEqual(result, expect);
+  t.deepEqual(actual, expect);
 
   t.end();
 });

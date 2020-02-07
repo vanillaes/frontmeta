@@ -1,8 +1,8 @@
 {
-  "input": [
+  "frontmeta": [
     "body"
   ],
-  "expect": {
+  "json": {
     "meta": {},
     "body": "body"
   }
