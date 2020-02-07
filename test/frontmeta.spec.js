@@ -1,6 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import test from 'tape';
-import frontmeta from '../index.js';
+import { parse } from 'frontmeta';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const basic = require('./__test__/basic.json');
@@ -21,7 +21,7 @@ const whitespace8 = require('./__test__/whitespace8.json');
 test('BasicUsage', (t) => {
   const input = basic.input.join('\n');
   const expect = basic.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -31,7 +31,7 @@ test('BasicUsage', (t) => {
 test('NoMetadata - if there is no metadata set body to the contents', (t) => {
   const input = noMeta.input.join('\n');
   const expect = noMeta.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -41,7 +41,7 @@ test('NoMetadata - if there is no metadata set body to the contents', (t) => {
 test('NoBody1 - if there is no body return just the metadata', (t) => {
   const input = noBody1.input.join('\n');
   const expect = noBody1.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -51,7 +51,7 @@ test('NoBody1 - if there is no body return just the metadata', (t) => {
 test('NoBody2 - if there is no body except a trailing newline return just the metadata', (t) => {
   const input = noBody2.input.join('\n');
   const expect = noBody2.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -62,7 +62,7 @@ test('Boundary1 - the opening boundary should have 3 or more dashes', (t) => {
   const input = boundary1.input.join('\n');
 
   try {
-    frontmeta(input);
+    parse(input);
   } catch (e) {
     t.pass('Expected exception thrown');
   }
@@ -74,7 +74,7 @@ test('Boundary2 - the closing boundary should have 3 or more dashes', (t) => {
   const input = boundary2.input.join('\n');
 
   try {
-    frontmeta(input);
+    parse(input);
   } catch (e) {
     t.pass('Expected exception thrown');
   }
@@ -85,7 +85,7 @@ test('Boundary2 - the closing boundary should have 3 or more dashes', (t) => {
 test('Whitespace1 - white space before opening dashes is ignored', (t) => {
   const input = whitespace1.input.join('\n');
   const expect = whitespace1.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -95,7 +95,7 @@ test('Whitespace1 - white space before opening dashes is ignored', (t) => {
 test('Whitespace2 - white space after opening dashes but before newline is ignored', (t) => {
   const input = whitespace2.input.join('\n');
   const expect = whitespace2.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -105,7 +105,7 @@ test('Whitespace2 - white space after opening dashes but before newline is ignor
 test('Whitespace3 - whitespace before key is ignored', (t) => {
   const input = whitespace3.input.join('\n');
   const expect = whitespace3.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -115,7 +115,7 @@ test('Whitespace3 - whitespace before key is ignored', (t) => {
 test('Whitespace4 - whitespace after key but before : is ignored', (t) => {
   const input = whitespace4.input.join('\n');
   const expect = whitespace4.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -125,7 +125,7 @@ test('Whitespace4 - whitespace after key but before : is ignored', (t) => {
 test('Whitespace5 - whitespace after : but before value is ignored', (t) => {
   const input = whitespace5.input.join('\n');
   const expect = whitespace5.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -135,7 +135,7 @@ test('Whitespace5 - whitespace after : but before value is ignored', (t) => {
 test('Whitespace6 - whitespace after value but before newline is ignored', (t) => {
   const input = whitespace6.input.join('\n');
   const expect = whitespace6.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -145,7 +145,7 @@ test('Whitespace6 - whitespace after value but before newline is ignored', (t) =
 test('Whitespace7 - whitespace before closing dashes is ignored', (t) => {
   const input = whitespace7.input.join('\n');
   const expect = whitespace7.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 
@@ -155,7 +155,7 @@ test('Whitespace7 - whitespace before closing dashes is ignored', (t) => {
 test('Whitespace8 - whitespace after closing dashes but before newline is ignored', (t) => {
   const input = whitespace8.input.join('\n');
   const expect = whitespace8.expect;
-  const result = frontmeta(input);
+  const result = parse(input);
 
   t.deepEqual(result, expect);
 

@@ -1,11 +1,11 @@
 const test = require('tape');
-const frontmeta = require('../index.cjs');
+const FrontMeta = require('frontmeta');
 const basic = require('./__test__/basic.json');
 
 test('BasicUsage', (t) => {
   const input = basic.input.join('\n');
   const expect = basic.expect;
-  const result = frontmeta(input);
+  const result = FrontMeta.parse(input);
 
   t.deepEqual(result, expect);
 
