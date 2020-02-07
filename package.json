@@ -2,7 +2,7 @@
   "name": "frontmeta",
   "version": "1.1.5",
   "license": "MIT",
-  "author": "Evan Plaice <evanplaice@gmail.com> (http://evanplaice.com/)",
+  "author": "Evan Plaice <evanplaice@gmail.com> (https://evanplaice.com/)",
   "description": "Front-matter parser for key:value pairs",
   "keywords": [
     "frontmatter",
