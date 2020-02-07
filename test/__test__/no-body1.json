@@ -1,8 +1,9 @@
 {
   "frontmeta": [
     "---",
-    "key:value",
-    "---"
+    "key: value",
+    "---",
+    ""
   ],
   "json": {
     "meta": {

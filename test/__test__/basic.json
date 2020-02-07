@@ -1,7 +1,7 @@
 {
   "frontmeta": [
     "---",
-    "key:value",
+    "key: value",
     "---",
     "body"
   ],
