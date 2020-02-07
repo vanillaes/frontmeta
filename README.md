@@ -28,13 +28,13 @@ import frontmeta from 'frontmeta';
 
 Takes a document string and extracts the frontmeta metadata
 
-### Arguments
+### FrontMeta.parse()
 
-```frontmeta(contents)```
+```frontmeta(contents) : object```
 
 - contents - a string representing the document contents
 
-### Parsing
+### Example
 
 ```
 ---
@@ -45,9 +45,9 @@ This is the document body.
 ```
 
 ```javascript
-import frontmeta from '/path/to/frontmeta/index.js';
+import FrontMeta from '/path/to/frontmeta/index.js';
 const document = // the document string
-const parsed = frontmeta(document)
+const parsed = FrontMeta.parse(document)
 console.log(parsed);
 //> {
 //>   "meta": {
@@ -60,12 +60,14 @@ console.log(parsed);
 
 ## CommonJS
 
-A CommonJS bundle is included for backward compatible with `node <= 13.2`
+A `.cjs` bundle is included for CommonJS compatibility 
+
+### FrontMeta.parse()
 
 ```javascript
-const frontmeta = require('frontmeta/index.cjs');
+const FrontMeta = require('frontmeta');
 const document = // the document string
-const data = frontMeta(document);
+const data = FrontMeta.parse(document);
 ```
 
 ## Typings
