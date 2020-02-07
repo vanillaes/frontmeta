@@ -1,12 +1,14 @@
+<h1 align="center">FrontMeta</h1>
+
+FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.
+
 [![GitHub Releases](https://img.shields.io/github/release/vanillaes/frontmeta.svg)](https://github.com/vanillaes/frontmeta/releases)
 [![NPM Release](https://img.shields.io/npm/v/frontmeta.svg)](https://www.npmjs.com/package/frontmeta)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vanillaes/frontmeta/master/LICENSE)
 [![Latest Status](https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
 [![Release Status](https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
 
-# FrontMeta
-
-A fast, simple, frontmatter `key: value` parser
+## Features
 
 - ECMAScript Module
 - CommonJS Bundle Included
