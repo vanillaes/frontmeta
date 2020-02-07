@@ -27,16 +27,17 @@ import frontmeta from 'frontmeta';
 
 ## Usage
 
-Takes a document string and extracts the frontmeta metadata
+Parse and stringify FrontMeta
 
 ### FrontMeta.parse()
 
-```frontmeta(contents) : object```
+```FrontMeta.parse(frontmeta) : object```
 
 - contents - a string representing the document contents
 
 ### Example
 
+*frontmeta*
 ```
 ---
 key1:value1
@@ -47,16 +48,47 @@ This is the document body.
 
 ```javascript
 import FrontMeta from '/path/to/frontmeta/index.js';
-const document = // the document string
-const parsed = FrontMeta.parse(document)
+const frontmeta = // the document frontmeta
+const parsed = FrontMeta.parse(frontmeta)
 console.log(parsed);
-//> {
-//>   "meta": {
-//>     "key1": "value1",
-//>     "key2": "value2"
-//>   },
-//>   "body": "This is the document body."
-//> }
+> {
+>   "meta": {
+>     "key1": "value1",
+>     "key2": "value2"
+>   },
+>   "body": "This is the document body."
+> }
+```
+
+### FrontMeta.parse()
+
+```FrontMeta.stringify(document) : object```
+
+- document - The frontmeta document object
+  - meta - the frontmeta `key:value` data
+  - body - the document body
+
+*document*
+```json
+{
+  "meta": {
+    "key1": "value1",
+    "key2": "value2"
+  },
+  "body": "This is the document body."
+}
+```
+
+```javascript
+import FrontMeta from '/path/to/frontmeta/index.js';
+const document = // the frontmeta document object
+const parsed = FrontMeta.stringify(document)
+console.log(parsed);
+> ---
+> key1:value1
+> key2:value2
+> ---
+> This is the document body.
 ```
 
 ## CommonJS
@@ -67,8 +99,16 @@ A `.cjs` bundle is included for CommonJS compatibility
 
 ```javascript
 const FrontMeta = require('frontmeta');
-const document = // the document string
-const data = FrontMeta.parse(document);
+const frontmeta = // the document frontmeta
+const data = FrontMeta.parse(frontmeta);
+```
+
+### FrontMeta.stringify()
+
+```javascript
+const FrontMeta = require('frontmeta');
+const document = // the frontmeta document object
+const data = FrontMeta.stringify(document);
 ```
 
 ## Typings
