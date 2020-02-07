@@ -13,7 +13,6 @@
   ],
   "repository": "http://github.com/vanillaes/frontmeta/",
   "main": "index.js",
-  "module": "dist/frontmeta.esm.js",
   "type": "module",
   "types": "index.d.ts",
   "scripts": {
