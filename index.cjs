@@ -121,7 +121,7 @@ function parse (frontmeta = '') {
  */
 function stringify (document) {
   if (!document.meta || Object.keys(document.meta).length === 0) { return document.body; }
-  
+
   let output = '---\n';
   const metaKeys = Object.keys(document.meta);
   metaKeys.forEach((key) => {
