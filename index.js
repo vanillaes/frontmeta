@@ -2,10 +2,10 @@
 /**
  * Parse a file that contains FrontMeta
  *
- * @param {string} contents the the document contents
+ * @param {string} frontmeta the FontMeta
  * @returns an object containing 'meta' and 'body' fields
  */
-export function parse (contents = '') {
+export function parse (frontmeta = '') {
   const meta = {};
   let body = '';
 
@@ -21,7 +21,7 @@ export function parse (contents = '') {
 
   const lexer = RegExp(/-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y);
 
-  while ((matches = lexer.exec(contents)) !== null) {
+  while ((matches = lexer.exec(frontmeta)) !== null) {
     match = matches[0];
 
     switch (state) {
@@ -98,12 +98,12 @@ export function parse (contents = '') {
     }
 
     if (noMeta) {
-      body = contents;
+      body = frontmeta;
       break;
     }
 
     if (isBody) {
-      body = contents.substr(lexer.lastIndex, contents.length - 1);
+      body = frontmeta.substr(lexer.lastIndex, frontmeta.length - 1);
       break;
     }
   }

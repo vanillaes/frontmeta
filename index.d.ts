@@ -1,10 +1,10 @@
 /**
  * Parse a file that contains FrontMeta
  *
- * @param {string} contents the the document contents
+ * @param {string} frontmeta the FontMeta
  * @returns an object containing 'meta' and 'body' fields
  */
-export function parse(contents?: string): {
+export function parse(frontmeta?: string): {
     meta: {};
     body: string;
 };

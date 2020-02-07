@@ -6,10 +6,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /**
  * Parse a file that contains FrontMeta
  *
- * @param {string} contents the the document contents
+ * @param {string} frontmeta the FontMeta
  * @returns an object containing 'meta' and 'body' fields
  */
-function parse (contents = '') {
+function parse (frontmeta = '') {
   const meta = {};
   let body = '';
 
@@ -25,7 +25,7 @@ function parse (contents = '') {
 
   const lexer = RegExp(/-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y);
 
-  while ((matches = lexer.exec(contents)) !== null) {
+  while ((matches = lexer.exec(frontmeta)) !== null) {
     match = matches[0];
 
     switch (state) {
@@ -100,12 +100,12 @@ function parse (contents = '') {
     }
 
     if (noMeta) {
-      body = contents;
+      body = frontmeta;
       break;
     }
 
     if (isBody) {
-      body = contents.substr(lexer.lastIndex, contents.length - 1);
+      body = frontmeta.substr(lexer.lastIndex, frontmeta.length - 1);
       break;
     }
   }
