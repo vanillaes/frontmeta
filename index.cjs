@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 /* eslint-disable no-new-func */
 /**
  * Parse a file that contains FrontMeta
@@ -7,7 +9,7 @@
  * @param {string} contents the the document contents
  * @returns an object containing 'meta' and 'body' fields
  */
-function FrontMeta (contents = '') {
+function parse (contents = '') {
   const meta = {};
   let body = '';
 
@@ -111,4 +113,7 @@ function FrontMeta (contents = '') {
   return { meta, body };
 }
 
-module.exports = FrontMeta;
+var index = { parse };
+
+exports.default = index;
+exports.parse = parse;
