@@ -9,6 +9,8 @@ FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather
 [![Latest Status](https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
 [![Release Status](https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
 
+<p align="center"><strong>⚠️ Notice: EcmaScript Module Support in Node is Experimental ⚠️</strong></p>
+
 ## Features
 
 - ECMAScript Module
