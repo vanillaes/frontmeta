@@ -68,5 +68,6 @@ jobs:
       run: |
         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
         ORG="$(echo '${{ github.repository }}' | cut -d'/' -f1)"
-        echo "registry=https://npm.pkg.github.com/$ORG" >> ~/.npmrc
+        echo "@$ORG:registry=https://npm.pkg.github.com" >> ~/.npmrc
+        cat ~/.npmrc
         npm publish
