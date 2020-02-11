@@ -14,7 +14,7 @@ jobs:
       - name: Setup
         uses: actions/setup-node@v1
         with:
-          version: 13.7
+          node-version: 13.7
       - name: Cache
         uses: actions/cache@v1
         with:
@@ -35,7 +35,7 @@ jobs:
     - name: Setup
       uses: actions/setup-node@v1
       with:
-        version: 13.7
+        node-version: 13.7
     - name: Cache
       uses: actions/cache@v1
       with:
@@ -56,7 +56,7 @@ jobs:
     - name: Setup
       uses: actions/setup-node@v1
       with:
-        version: 13.7
+        node-version: 13.7
     - name: Cache
       uses: actions/cache@v1
       with:
@@ -67,5 +67,4 @@ jobs:
     - name: Publish
       run: |
         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_AUTH_TOKEN }}" > ~/.npmrc
-        npm publish
-    
+        npm publish --access public
