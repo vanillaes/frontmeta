@@ -1,6 +1,6 @@
 {
   "name": "frontmeta",
-  "version": "2.1.9",
+  "version": "2.1.7",
   "license": "MIT",
   "author": "Evan Plaice <evanplaice@gmail.com> (https://evanplaice.com/)",
   "description": "Front-matter parser for key:value pairs",
@@ -11,7 +11,7 @@
     "key",
     "value"
   ],
-  "repository": "git@github.com:vanillaes/frontmeta.git",
+  "repository": "http://github.com/vanillaes/frontmeta/",
   "type": "module",
   "main": "index.cjs",
   "exports": {
