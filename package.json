@@ -1,6 +1,6 @@
 {
   "name": "frontmeta",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "license": "MIT",
   "author": "Evan Plaice <evanplaice@gmail.com> (https://evanplaice.com/)",
   "description": "Front-matter parser for key:value pairs",
