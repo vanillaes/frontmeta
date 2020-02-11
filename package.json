@@ -11,7 +11,7 @@
     "key",
     "value"
   ],
-  "repository": "http://github.com/vanillaes/frontmeta/",
+  "repository": "https://github.com/vanillaes/frontmeta/",
   "type": "module",
   "main": "index.cjs",
   "exports": {
