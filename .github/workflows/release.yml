@@ -66,9 +66,8 @@ jobs:
           ${{ runner.OS }}-npm-cache-
     - name: Publish
       run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_AUTH_TOKEN }}" > ~/.npmrc
         ORG="$(echo '${{ github.repository }}' | cut -d'/' -f1)"
         echo "registry=https://npm.pkg.github.com/$ORG" > .npmrc
-        cat ~/.npmrc
         cat .npmrc
+        npm login --registry=https://npm.pkg.github.com/
         npm publish --access public
