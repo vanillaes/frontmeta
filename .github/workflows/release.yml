@@ -71,4 +71,4 @@ jobs:
         echo "registry=https://npm.pkg.github.com/$ORG" > .npmrc
         cat ~/.npmrc
         cat .npmrc
-        npm publish
+        npm publish --access public
