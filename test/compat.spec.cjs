@@ -1,5 +1,5 @@
 const test = require('tape');
-const FrontMeta = require('frontmeta');
+const FrontMeta = require('@vanillaes/frontmeta');
 const basic = require('./__test__/basic.json');
 
 test('BasicUsage', (t) => {
