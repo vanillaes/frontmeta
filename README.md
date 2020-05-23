@@ -3,8 +3,8 @@
 FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.
 
 [![GitHub Releases](https://badgen.net/github/tag/vanillaes/frontmeta)](https://github.com/vanillaes/frontmeta/releases)
-[![NPM Release](https://badgen.net/npm/v/frontmeta)](https://www.npmjs.com/package/frontmeta)
-[![Bundlephobia](https://badgen.net/bundlephobia/minzip/frontmeta)](https://bundlephobia.com/result?p=frontmeta)
+[![NPM Release](https://badgen.net/npm/v/@vanillaes/frontmeta)](https://www.npmjs.com/package/@vanillaes/frontmeta)
+[![Bundlephobia](https://badgen.net/bundlephobia/minzip/@vanillaes/frontmeta)](https://bundlephobia.com/result?p=@vanillaes/frontmeta)
 [![MIT License](https://badgen.net/github/license/vanillaes/frontmeta)](https://raw.githubusercontent.com/vanillaes/frontmeta/master/LICENSE)
 [![Latest Status](https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
 [![Release Status](https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
@@ -18,11 +18,11 @@ FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather
 ## Installation
 
 ```sh
-npm install frontmeta
+npm install @vanillaes/frontmeta
 ```
 
 ```javascript
-import frontmeta from 'frontmeta';
+import FrontMeta from '@vanillaes/frontmeta';
 ```
 
 ## Usage
@@ -31,13 +31,13 @@ Parse and stringify FrontMeta
 
 ### FrontMeta.parse()
 
-```FrontMeta.parse(frontmeta) : object```
+```FrontMeta.parse(contents) : object```
 
 - contents - a string representing the document contents
 
 ### Example
 
-*frontmeta*
+*contents*
 ```
 ---
 key1:value1
@@ -47,8 +47,8 @@ This is the document body.
 ```
 
 ```javascript
-import FrontMeta from '/path/to/frontmeta/index.js';
-const frontmeta = // the document frontmeta
+import FrontMeta from '@vanillaes/frontmeta';
+const frontmeta = // the document contents
 const parsed = FrontMeta.parse(frontmeta)
 console.log(parsed);
 > {
@@ -80,10 +80,10 @@ console.log(parsed);
 ```
 
 ```javascript
-import FrontMeta from '/path/to/frontmeta/index.js';
+import FrontMeta from '@vanillaes/frontmeta';
 const document = // the frontmeta document object
-const parsed = FrontMeta.stringify(document)
-console.log(parsed);
+const frontmeta = FrontMeta.stringify(document)
+console.log(frontmeta);
 > ---
 > key1:value1
 > key2:value2
@@ -98,9 +98,9 @@ A `.cjs` bundle is included for CommonJS compatibility
 ### FrontMeta.parse()
 
 ```javascript
-const FrontMeta = require('frontmeta');
+const FrontMeta = require('@vanillaes/frontmeta');
 const frontmeta = // the document frontmeta
-const data = FrontMeta.parse(frontmeta);
+const parsed = FrontMeta.parse(frontmeta);
 ```
 
 ### FrontMeta.stringify()
@@ -108,7 +108,7 @@ const data = FrontMeta.parse(frontmeta);
 ```javascript
 const FrontMeta = require('frontmeta');
 const document = // the frontmeta document object
-const data = FrontMeta.stringify(document);
+const frontmeta = FrontMeta.stringify(document);
 ```
 
 ## Typings
