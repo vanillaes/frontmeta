@@ -1,7 +1,7 @@
-**/__test__/
 .config/
 .github/
 .vscode
+test/
 *.spec.js
 *.spec.cjs
 *.tgz
