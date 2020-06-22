@@ -34,24 +34,24 @@ function parse (frontmeta = '') {
           case match === '-':
             dashes++;
             state = 1;
-            break;
+            break
           case /^(\s)$/.test(match):
             state = 0;
-            break;
+            break
           default:
             noMeta = true;
-            break;
+            break
         }
-        break;
+        break
       case 1: // dash marker
         switch (true) {
           case match === '-':
             dashes++;
             state = 1;
-            break;
+            break
           case /^(\r\n|\n|\r)$/.test(match):
             if (dashes < 3) {
-              throw Error('ERR: Meta boundary must have at least 3 dashes');
+              throw Error('ERR: Meta boundary must have at least 3 dashes')
             }
             if (!isMeta) {
               isMeta = true;
@@ -61,56 +61,56 @@ function parse (frontmeta = '') {
               state = 5;
             }
             dashes = 0;
-            break;
+            break
         }
-        break;
+        break
       case 2: // meta-key
         switch (true) {
           case match === ':':
             state = 3;
-            break;
+            break
           case /^(\s)$/.test(match):
             state = 2;
-            break;
+            break
           case /^(\r\n|\n|\r)$/.test(match):
-            throw Error('ERR: Broken key:value pair');
+            throw Error('ERR: Broken key:value pair')
           default:
             key += match;
             state = 2;
-            break;
+            break
         }
-        break;
+        break
       case 3: // meta-value
         switch (true) {
           case (value === '' && /^(\s)$/.test(match)):
             state = 3;
-            break;
+            break
           case /^(\r\n|\n|\r)$/.test(match):
             state = 1;
             meta[key] = value.trimRight();
             key = '';
             value = '';
-            break;
+            break
           default:
             state = 3;
             value += match;
-            break;
+            break
         }
-        break;
+        break
     }
 
     if (noMeta) {
       body = frontmeta;
-      break;
+      break
     }
 
     if (isBody) {
       body = frontmeta.substr(lexer.lastIndex, frontmeta.length - 1);
-      break;
+      break
     }
   }
 
-  return { meta, body };
+  return { meta, body }
 }
 
 /**
@@ -120,7 +120,7 @@ function parse (frontmeta = '') {
  * @returns {string} the FrontMeta string
  */
 function stringify (document) {
-  if (!document.meta || Object.keys(document.meta).length === 0) { return document.body; }
+  if (!document.meta || Object.keys(document.meta).length === 0) { return document.body }
 
   let output = '---\n';
   const metaKeys = Object.keys(document.meta);
@@ -132,7 +132,7 @@ function stringify (document) {
     output += document.body;
   }
 
-  return output;
+  return output
 }
 
 var index = { parse, stringify };
