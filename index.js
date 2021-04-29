@@ -19,7 +19,7 @@ export function parse (frontmeta = '') {
   let key = ''
   let value = ''
 
-  const lexer = RegExp(/-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y)
+  const lexer = /-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y
 
   while ((matches = lexer.exec(frontmeta)) !== null) {
     match = matches[0]
