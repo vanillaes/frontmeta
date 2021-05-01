@@ -5,11 +5,10 @@
   "author": "Evan Plaice <evanplaice@gmail.com> (https://evanplaice.com/)",
   "description": "Front-matter parser for key:value pairs",
   "keywords": [
+    "esm",
+    "esmodules",
     "frontmatter",
-    "metadata",
-    "parser",
-    "key",
-    "value"
+    "metadata"
   ],
   "repository": "https://github.com/vanillaes/frontmeta/",
   "type": "module",
