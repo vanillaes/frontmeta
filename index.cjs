@@ -1,57 +1,56 @@
-'use strict';
+var __defProp = Object.defineProperty;
+var __markAsModule = (target) => __defProp(target, "__esModule", {value: true});
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, {get: all[name], enumerable: true});
+};
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-/* eslint-disable no-new-func */
-/**
- * Parse a file that contains FrontMeta
- *
- * @param {string} frontmeta the FontMeta
- * @returns an object containing 'meta' and 'body' fields
- */
-function parse (frontmeta = '') {
+// index.js
+__markAsModule(exports);
+__export(exports, {
+  default: () => frontmeta_default,
+  parse: () => parse,
+  stringify: () => stringify
+});
+function parse(frontmeta = "") {
   const meta = {};
-  let body = '';
-
+  let body = "";
   let matches = [];
-  let match = '';
+  let match = "";
   let state = 0;
   let dashes = 0;
   let noMeta = false;
   let isMeta = false;
   let isBody = false;
-  let key = '';
-  let value = '';
-
+  let key = "";
+  let value = "";
   const lexer = /-|:|\r\n|\n|\r|\s|[^:\s\r\n]+/y;
-
   while ((matches = lexer.exec(frontmeta)) !== null) {
     match = matches[0];
-
     switch (state) {
-      case 0: // start of the file
+      case 0:
         switch (true) {
-          case match === '-':
+          case match === "-":
             dashes++;
             state = 1;
-            break
+            break;
           case /^(\s)$/.test(match):
             state = 0;
-            break
+            break;
           default:
             noMeta = true;
-            break
+            break;
         }
-        break
-      case 1: // dash marker
+        break;
+      case 1:
         switch (true) {
-          case match === '-':
+          case match === "-":
             dashes++;
             state = 1;
-            break
+            break;
           case /^(\r\n|\n|\r)$/.test(match):
             if (dashes < 3) {
-              throw Error('ERR: Meta boundary must have at least 3 dashes')
+              throw Error("ERR: Meta boundary must have at least 3 dashes");
             }
             if (!isMeta) {
               isMeta = true;
@@ -61,82 +60,70 @@ function parse (frontmeta = '') {
               state = 5;
             }
             dashes = 0;
-            break
+            break;
+          default:
+            break;
         }
-        break
-      case 2: // meta-key
+        break;
+      case 2:
         switch (true) {
-          case match === ':':
+          case match === ":":
             state = 3;
-            break
+            break;
           case /^(\s)$/.test(match):
             state = 2;
-            break
+            break;
           case /^(\r\n|\n|\r)$/.test(match):
-            throw Error('ERR: Broken key:value pair')
+            throw Error("ERR: Broken key:value pair");
           default:
             key += match;
             state = 2;
-            break
+            break;
         }
-        break
-      case 3: // meta-value
+        break;
+      case 3:
         switch (true) {
-          case (value === '' && /^(\s)$/.test(match)):
+          case (value === "" && /^(\s)$/.test(match)):
             state = 3;
-            break
+            break;
           case /^(\r\n|\n|\r)$/.test(match):
             state = 1;
             meta[key] = value.trimRight();
-            key = '';
-            value = '';
-            break
+            key = "";
+            value = "";
+            break;
           default:
             state = 3;
             value += match;
-            break
+            break;
         }
-        break
+        break;
     }
-
     if (noMeta) {
       body = frontmeta;
-      break
+      break;
     }
-
     if (isBody) {
       body = frontmeta.substr(lexer.lastIndex, frontmeta.length - 1);
-      break
+      break;
     }
   }
-
-  return { meta, body }
+  return {meta, body};
 }
-
-/**
- * Stringify takes a FrontMeta document object and returns FrontMatter
- *
- * @param {Object} document a FrontMeta document object
- * @returns {string} the FrontMeta string
- */
-function stringify (document) {
-  if (!document.meta || Object.keys(document.meta).length === 0) { return document.body }
-
-  let output = '---\n';
+function stringify(document) {
+  if (!document.meta || Object.keys(document.meta).length === 0) {
+    return document.body;
+  }
+  let output = "---\n";
   const metaKeys = Object.keys(document.meta);
   metaKeys.forEach((key) => {
-    output += `${key}: ${document.meta[key]}\n`;
+    output += `${key}: ${document.meta[key]}
+`;
   });
-  output += '---\n';
+  output += "---\n";
   if (document.body) {
     output += document.body;
   }
-
-  return output
+  return output;
 }
-
-var index = { parse, stringify };
-
-exports.default = index;
-exports.parse = parse;
-exports.stringify = stringify;
+var frontmeta_default = {parse, stringify};
