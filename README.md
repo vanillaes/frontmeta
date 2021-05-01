@@ -2,12 +2,13 @@
 
 FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.
 
-[![GitHub Releases](https://badgen.net/github/tag/vanillaes/frontmeta)](https://github.com/vanillaes/frontmeta/releases)
-[![NPM Release](https://badgen.net/npm/v/@vanillaes/frontmeta)](https://www.npmjs.com/package/@vanillaes/frontmeta)
-[![Bundlephobia](https://badgen.net/bundlephobia/minzip/@vanillaes/frontmeta)](https://bundlephobia.com/result?p=@vanillaes/frontmeta)
-[![MIT License](https://badgen.net/github/license/vanillaes/frontmeta)](https://raw.githubusercontent.com/vanillaes/frontmeta/master/LICENSE)
-[![Latest Status](https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
-[![Release Status](https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg)](https://github.com/vanillaes/frontmeta/actions)
+<div align="center">
+  <a href="https://github.com/vanillaes/frontmeta/releases"><img src="https://badgen.net/github/tag/vanillaes/frontmeta" alt="GitHub Release"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/v/@vanillaes/frontmeta" alt="NPM Release"></a>
+  <a href="https://bundlephobia.com/result?p=@vanillaes/frontmeta"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/frontmeta" alt="Bundlephobia"></a>
+  <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg" alt="Latest Status"></a>
+  <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg" alt="Release Status"></a>
+</div>
 
 ## Features
 
