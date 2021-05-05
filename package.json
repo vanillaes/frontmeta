@@ -12,7 +12,6 @@
   ],
   "repository": "https://github.com/vanillaes/frontmeta",
   "type": "module",
-  "main": "index.cjs",
   "exports": {
     "import": "./index.js",
     "require": "./index.cjs"
