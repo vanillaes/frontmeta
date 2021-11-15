@@ -45,7 +45,7 @@ import { parse } from 'path/to/frontmeta/index.min.js'
 Install the package
 
 ```sh
-npm install @vanillaes/csv
+npm install @vanillaes/frontmeta
 ```
 
 Import using the module path
