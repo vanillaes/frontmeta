@@ -3,5 +3,4 @@
 .vscode
 test/
 *.spec.js
-*.spec.cjs
 *.tgz

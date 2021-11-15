@@ -18,14 +18,40 @@ FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather
 - CommonJS Bundle Included
 - Typescript Compatible
 
-## Installation
+## Imports
 
-```sh
-npm install @vanillaes/frontmeta
+This package works isomorphically in browser and server-side JavaScript
+
+### Browser
+
+Import directly from the local path or a CDN
+
+```html
+<script type="module">
+import { parse } from 'path/to/frontmeta/index.js'
+</script>
 ```
 
+The minified version can be imported from
+
+```html
+<script type="module">
+import { parse } from 'path/to/frontmeta/index.min.js'
+</script>
+```
+
+### Node
+
+Install the package
+
+```sh
+npm install @vanillaes/csv
+```
+
+Import using the module path
+
 ```javascript
-import FrontMeta from '@vanillaes/frontmeta';
+import { parse } from '@vanillaes/frontmeta'
 ```
 
 ## Usage
@@ -50,7 +76,6 @@ This is the document body.
 ```
 
 ```javascript
-import FrontMeta from '@vanillaes/frontmeta';
 const frontmeta = // the document contents
 const parsed = FrontMeta.parse(frontmeta)
 console.log(parsed);
@@ -63,7 +88,7 @@ console.log(parsed);
 > }
 ```
 
-### FrontMeta.parse()
+### FrontMeta.stringify()
 
 ```FrontMeta.stringify(document) : object```
 
@@ -83,7 +108,6 @@ console.log(parsed);
 ```
 
 ```javascript
-import FrontMeta from '@vanillaes/frontmeta';
 const document = // the frontmeta document object
 const frontmeta = FrontMeta.stringify(document)
 console.log(frontmeta);
@@ -92,26 +116,6 @@ console.log(frontmeta);
 > key2:value2
 > ---
 > This is the document body.
-```
-
-## CommonJS
-
-A `.cjs` bundle is included for CommonJS compatibility 
-
-### FrontMeta.parse()
-
-```javascript
-const FrontMeta = require('@vanillaes/frontmeta');
-const frontmeta = // the document frontmeta
-const parsed = FrontMeta.parse(frontmeta);
-```
-
-### FrontMeta.stringify()
-
-```javascript
-const FrontMeta = require('frontmeta');
-const document = // the frontmeta document object
-const frontmeta = FrontMeta.stringify(document);
 ```
 
 ## Typings
