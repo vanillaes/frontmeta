@@ -3,13 +3,12 @@
 FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.
 
 <div align="center">
-  <a href="https://github.com/vanillaes/frontmeta/releases"><img src="https://badgen.net/github/tag/vanillaes/frontmeta" alt="GitHub Release"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/v/@vanillaes/frontmeta" alt="NPM Release"></a>
+  <a href="https://github.com/vanillaes/frontmeta/releases"><img src="https://badgen.net/github/tag/vanillaes/frontmeta?cache-control=no-cache" alt="GitHub Release"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/v/@vanillaes/frontmeta?icon=npm" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/dm/@vanillaes/frontmeta?icon=npm" alt="NPM Downloads"></a>
   <a href="https://bundlephobia.com/result?p=@vanillaes/frontmeta"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/frontmeta" alt="Bundlephobia"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg" alt="Release Status"></a>
-
-  <a href="https://discord.gg/aSWYgtybzV"><img alt="Discord" src="https://img.shields.io/discord/723296249121603604?color=%23738ADB"></a>
 </div>
 
 ## Features
@@ -28,7 +27,7 @@ Import directly from the local path or a CDN
 
 ```html
 <script type="module">
-import { parse } from 'path/to/frontmeta/index.js'
+import { parse, stringify } from 'path/to/frontmeta/index.js'
 </script>
 ```
 
@@ -36,7 +35,7 @@ The minified version can be imported from
 
 ```html
 <script type="module">
-import { parse } from 'path/to/frontmeta/index.min.js'
+import { parse, stringify } from 'path/to/frontmeta/index.min.js'
 </script>
 ```
 
