@@ -1,19 +1,16 @@
-/* eslint-disable no-new-func */
-
 /**
- * @typedef {Object} Document
- * @property {Object} [meta] - a dictionary representing the document metadata
+ * @typedef {object} Document
+ * @property {{[key: string]: string}} [meta] - a dictionary representing the document metadata
  * @property {string} [body] - the document body
  */
 
 /**
  * Parse a file that contains FrontMeta
- *
  * @param {string} frontmeta the FontMeta
- * @returns an object containing 'meta' and 'body' fields
+ * @returns {object} an object containing 'meta' and 'body' fields
  */
 export function parse (frontmeta = '') {
-  /** @type {Object.<string, any>} */
+  /** @type {{[key: string]: string}} */
   const meta = {}
   let body = ''
 
@@ -94,7 +91,7 @@ export function parse (frontmeta = '') {
             break
           case /^(\r\n|\n|\r)$/.test(match):
             state = 1
-            meta[key] = value.trimRight()
+            meta[key] = value.trimEnd()
             key = ''
             value = ''
             break
@@ -112,7 +109,7 @@ export function parse (frontmeta = '') {
     }
 
     if (isBody) {
-      body = frontmeta.substr(lexer.lastIndex, frontmeta.length - 1)
+      body = frontmeta.slice(lexer.lastIndex, lexer.lastIndex + frontmeta.length - 1)
       break
     }
   }
@@ -122,12 +119,13 @@ export function parse (frontmeta = '') {
 
 /**
  * Stringify takes a FrontMeta document object and returns FrontMatter
- *
  * @param {Document} document a FrontMeta document object
  * @returns {string | undefined} the FrontMeta string
  */
 export function stringify (document) {
-  if (!document?.meta || Object.keys(document?.meta).length === 0) { return document.body }
+  if (!document?.meta || Object.keys(document?.meta).length === 0) {
+    return document.body ? document.body : ''
+  }
 
   let output = '---\n'
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import test from 'tape'
 import { stringify } from '@vanillaes/frontmeta'
 import { createRequire } from 'module'
