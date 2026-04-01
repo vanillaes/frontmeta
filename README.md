@@ -1,12 +1,13 @@
 <h1 align="center">FrontMeta</h1>
 
-FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.
+<div align="center">FrontMeta is a minimalist front-matter format that uses `key:value` pairs rather than YAML. This results in a parser that is optimized for both size and speed.</div>
+
+<br />
 
 <div align="center">
   <a href="https://github.com/vanillaes/frontmeta/releases"><img src="https://badgen.net/github/tag/vanillaes/frontmeta?cache-control=no-cache" alt="GitHub Release"></a>
   <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/v/@vanillaes/frontmeta?icon=npm" alt="NPM Version"></a>
   <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/dm/@vanillaes/frontmeta?icon=npm" alt="NPM Downloads"></a>
-  <a href="https://bundlephobia.com/result?p=@vanillaes/frontmeta"><img src="https://badgen.net/bundlephobia/minzip/@vanillaes/frontmeta" alt="Bundlephobia"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg" alt="Release Status"></a>
 </div>

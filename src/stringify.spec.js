@@ -2,9 +2,9 @@ import test from 'tape'
 import { stringify } from '@vanillaes/frontmeta'
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
-const basic = require('./__test__/basic.json')
-const noMeta = require('./__test__/no-meta.json')
-const noBody = require('./__test__/no-body1.json')
+const basic = require('./__tests__/basic.json')
+const noMeta = require('./__tests__/no-meta.json')
+const noBody = require('./__tests__/no-body1.json')
 
 test('BasicUsage', (t) => {
   const input = basic.json

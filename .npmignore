@@ -1,6 +1,4 @@
-.config/
 .github/
-.vscode
+.vscode/
 test/
 *.spec.js
-*.tgz
