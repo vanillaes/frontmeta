@@ -17,7 +17,6 @@
     "types": "./src/index.d.ts",
     "browser": "./src/index.min.js"
   },
-  "types": "index.d.ts",
   "scripts": {
     "test": "esmtk test",
     "test:watch": "esmtk test --watch",
