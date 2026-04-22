@@ -6,8 +6,9 @@
 
 <div align="center">
   <a href="https://github.com/vanillaes/frontmeta/releases"><img src="https://badgen.net/github/tag/vanillaes/frontmeta?cache-control=no-cache" alt="GitHub Release"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/v/@vanillaes/frontmeta?icon=npm" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/dm/@vanillaes/frontmeta?icon=npm" alt="NPM Downloads"></a>
+  <a href="https://npmjs.com/package/@vanillaes/frontmeta"><img src="https://badgen.net/npm/dw/@vanillaes/frontmeta?icon=npm" alt="NPM Weekly Downloads"></a>
+  <a href="https://jsr.io/@vanillaes/frontmeta"><img src="https://jsr.io/badges/@vanillaes/frontmeta/weekly-downloads" alt="JSR Weekly Downloads"></a>
+  <a href="https://jsr.io/@vanillaes/frontmeta"><img src="https://jsr.io/badges/@vanillaes/frontmeta/score" alt="JSR Score"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Latest/badge.svg" alt="Latest Status"></a>
   <a href="https://github.com/vanillaes/frontmeta/actions"><img src="https://github.com/vanillaes/frontmeta/workflows/Release/badge.svg" alt="Release Status"></a>
 </div>
